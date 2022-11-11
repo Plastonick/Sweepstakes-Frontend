@@ -3,7 +3,11 @@
   import Github from './lib/Github.svelte'
   import axios from 'axios'
 
-  const updateConfiguration = async function () {
+  const sweepstakesApi = import.meta.env.VITE_SWEEPSTAKES_API
+
+  console.log('sweepstakesApi', sweepstakesApi)
+
+  const fetchAndHydrateConfiguration = async function () {
     const hydrateConfiguration = (result) => {
       formValues.service = result.data.service
       formValues.owners = result.data.owners
@@ -23,10 +27,19 @@
         formValues.service = 'discord'
       }
     }
-
-    axios.get('http://127.0.0.1:8090/configuration', { params: { url: formValues.webhook }})
+    axios.get(sweepstakesApi, { params: { url: formValues.webhook }})
       .then(hydrateConfiguration)
       .catch(hydrateService)
+  }
+
+  const updateConfiguration = async function () {
+    if (!formValues.webhook) {
+      return
+    }
+
+    await axios.put(sweepstakesApi, formValues)
+        .then()
+        .catch()
   }
 
   const formValues = {
@@ -74,7 +87,9 @@
     NED: 'Netherlands'
   }
 
-  const handleSubmit = () => {}
+  const handleSubmit = () => {
+    updateConfiguration()
+  }
 
   const emojiTitle = 'Emoji should be a comma separated list of emoji randomly picked for their event, e.g. tada,confetti_ball,partying_face,fireworks'
 </script>
@@ -89,7 +104,7 @@
           id="webhook"
           name="webhook"
           placeholder="https://hooks.slack.com/services/..."
-          on:change={updateConfiguration}
+          on:change={fetchAndHydrateConfiguration}
           bind:value={formValues.webhook}
       />
     </span>

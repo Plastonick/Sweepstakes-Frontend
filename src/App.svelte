@@ -5,8 +5,6 @@
 
   const sweepstakesApi = import.meta.env.VITE_SWEEPSTAKES_API
 
-  console.log('sweepstakesApi', sweepstakesApi)
-
   const fetchAndHydrateConfiguration = async function () {
     if (!formValues.webhook) {
       return

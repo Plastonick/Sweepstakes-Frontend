@@ -1,227 +1,259 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+    color: #535bf2;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #fbfbfb;
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
 }
 
 a.github-corner svg {
-  color: #fbfbfb;
+    color: #242424;
+    fill: var(--primary-dark)
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    font-size: 3.2em;
+    line-height: 1.1;
 }
 
 .card {
-  padding: 2em;
+    padding: 2em;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+    border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
 
 :root {
-  --primary-light: #a6f9d6;
-  --primary: #5be2a9;
-  --primary-dark: #53ce9a;
-  --secondary: #1e2145;
-  --white: #fff;
-  --grey: #e6e6ff;
-  --grey-dark: #6d7098;
-  --red: #ff6b6b;
+    --primary-light: #a6f9d6;
+    --primary: #5be2a9;
+    --primary-dark: #53ce9a;
+    --secondary: #1e2145;
+    --white: #fff;
+    --grey: #e6e6ff;
+    --grey-dark: #6d7098;
+    --red: #ff6b6b;
 }
 
 input,
 select,
 textarea {
-  font-family: inherit;
-  font-size: inherit;
-  max-width: 400px;
-  width: 100%;
-  padding: 12px;
-  box-sizing: border-box;
-  border: 1px solid var(--grey);
-  border-radius: 4px;
-  transition: all 150ms ease;
-  background: var(--white);
+    font-family: inherit;
+    font-size: inherit;
+    max-width: 400px;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+    transition: all 150ms ease;
+    background: #333;
 }
 
 select {
-  height: 45px;
+    height: 45px;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgb(227, 227, 245);
-  border-color: var(--grey);
+    outline: none;
+    box-shadow: 0 0 0 4px rgb(227, 227, 245);
+    border-color: var(--grey);
 }
 
 input:disabled,
 select:disabled,
 textarea:disabled {
-  color: #ccc;
+    color: #ccc;
 }
 
 button {
-  color: #fff;
-  background-color: var(--primary);
-  border: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  outline: none;
-  border-radius: 4px;
-  display: block;
-  margin-top: 12px;
-  line-height: 1.8;
-  font-size: 12px;
-  padding: 10px 18px;
-  min-width: 120px;
-  transition: all 150ms ease;
-  cursor: pointer;
+    color: #000;
+    background-color: var(--primary);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 4px;
+    display: block;
+    margin-top: 12px;
+    line-height: 1.8;
+    font-size: 12px;
+    padding: 10px 18px;
+    min-width: 120px;
+    transition: all 150ms ease;
+    cursor: pointer;
 }
 
 button:disabled {
-  background-color: var(--grey);
+    background-color: var(--grey);
 }
 
 button:focus:not(:disabled) {
-  box-shadow: 0 0 0 4px var(--primary-light);
+    box-shadow: 0 0 0 4px var(--primary-light);
 }
 
 button:hover:not(:disabled) {
-  background-color: var(--primary-dark);
+    background-color: var(--primary-dark);
 }
 
 label {
-  display: block;
-  color: var(--grey-dark);
-  font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 2px;
-  line-height: 2;
+    display: block;
+    color: var(--grey-dark);
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    line-height: 2;
 }
 
 .form-section {
-  width: 50vw;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
+    width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .form-section > * {
-  flex: 1 1 10vw;
+    flex: 1 1 10vw;
 }
 
 .form-element {
-  padding: 1em;
+    padding: 1em;
 }
 
 .submit-section {
-  width: 50vw;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
+    width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .submit-section > * {
-  flex: 0 1 8vw;
+    flex: 0 1 8vw;
 }
 
 button.delete {
-  filter: hue-rotate(-145deg);
+    filter: hue-rotate(-145deg);
 }
 
-.form-element > a.button {
-  margin-left: -40px;
-  background-color: var(--primary-light);
-  padding: 0.4em;
-  color: var(--white);
-  border-radius: 5px;
+a.button {
+    margin-left: -40px;
+    background-color: var(--primary-dark);
+    padding: 0.4em;
+    color: #333;
+    border-radius: 5px;
 }
+
 .form-element > a.button:hover {
-  background-color: var(--primary);
+    background-color: var(--primary);
 }
 
 div.content {
-  position: center;
-  padding: 2em;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-color: white;
+    padding: 2em;
+    box-shadow: rgba(10, 10, 10, 0.2) 0 2px 8px 0;
+    background-color: #333333;
 }
 
 hr {
-  border: 0;
-  height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
+
+    div.content {
+        box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+        background-color: white;
+    }
+
+    input,
+    select,
+    textarea {
+        background: var(--white);
+    }
+
+    button {
+        color: #fff;
+        background-color: var(--primary);
+    }
+
+    a.button {
+        background-color: var(--primary-light);
+        color: var(--white);
+    }
+
+    a.github-corner svg {
+        color: #fbfbfb;
+        fill: var(--primary-dark)
+    }
 }

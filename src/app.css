@@ -30,6 +30,11 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #fbfbfb;
+}
+
+a.github-corner svg {
+  color: #fbfbfb;
 }
 
 h1 {
@@ -129,7 +134,7 @@ button {
   background-color: var(--primary);
   border: none;
   text-transform: uppercase;
-  letter-spacing: 1.8px;
+  letter-spacing: 2px;
   outline: none;
   border-radius: 4px;
   display: block;
@@ -166,17 +171,57 @@ label {
   line-height: 2;
 }
 
-.wrapper {
+.form-section {
   width: 50vw;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
 }
 
-.wrapper > * {
-  flex: 1 1 15vw;
+.form-section > * {
+  flex: 1 1 10vw;
 }
 
 .form-element {
   padding: 1em;
+}
+
+.submit-section {
+  width: 50vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.submit-section > * {
+  flex: 0 1 8vw;
+}
+
+button.delete {
+  filter: hue-rotate(-145deg);
+}
+
+.form-element > a.button {
+  margin-left: -40px;
+  background-color: var(--primary-light);
+  padding: 0.4em;
+  color: var(--white);
+  border-radius: 5px;
+}
+.form-element > a.button:hover {
+  background-color: var(--primary);
+}
+
+div.content {
+  position: center;
+  padding: 2em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }

@@ -1,79 +1,82 @@
 <script>
   import { onMount } from 'svelte';
-  import { createForm } from 'svelte-forms-lib'
   import Github from './lib/Github.svelte'
   import axios from 'axios'
 
   const updateConfiguration = async function () {
-    axios.get('http://192.168.1.16:8090/configuration', { params: { url: formValues.webhook }})
-      .then((result) => {
-        formValues.service = result.data.service
-        formValues.owners = result.data.owners
-        formValues.win = result.data.win
-        formValues.score = result.data.score
-        formValues.kickOff = result.data.kickOff
-        formValues.draw = result.data.draw
-      })
-      .catch(() => console.error('uh oh! Something bad happened'))
-  }
+    const hydrateConfiguration = (result) => {
+      formValues.service = result.data.service
+      formValues.owners = result.data.owners
+      formValues.win = result.data.win
+      formValues.score = result.data.score
+      formValues.kickOff = result.data.kickOff
+      formValues.draw = result.data.draw
+    }
 
+    const hydrateService = () => {
+      const isSlack = formValues.webhook.indexOf('hooks.slack.com') !== -1
+      const isDiscord = formValues.webhook.indexOf('discord.com') !== -1
+
+      if (isSlack) {
+        formValues.service = 'slack'
+      } else if (isDiscord) {
+        formValues.service = 'discord'
+      }
+    }
+
+    axios.get('http://127.0.0.1:8090/configuration', { params: { url: formValues.webhook }})
+      .then(hydrateConfiguration)
+      .catch(hydrateService)
+  }
 
   const formValues = {
     webhook: '',
     service: '',
-    owners: '',
+    owners: {},
     win: '',
     score: '',
     kickOff: '',
-    draw: ''
+    draw: '',
   }
 
-  const {form, handleChange, handleSubmit} = createForm({
-    initialValues: {
-      title: '',
-      name: '',
-      email: ''
-    },
-    onSubmit: values => {
-      alert(JSON.stringify(values))
-    }
-  })
+  const teams = {
+    URU: 'Uruguay',
+    GER: 'Germany',
+    ESP: 'Spain',
+    ARG: 'Argentina',
+    GHA: 'Ghana',
+    BRA: 'Brazil',
+    POR: 'Portugal',
+    JPN: 'Japan',
+    MEX: 'Mexico',
+    ENG: 'England',
+    USA: 'United States',
+    KOR: 'South Korea',
+    FRA: 'France',
+    AUS: 'Australia',
+    SRB: 'Serbia',
+    CMR: 'Cameroon',
+    DEN: 'Denmark',
+    SUI: 'Switzerland',
+    ECU: 'Ecuador',
+    CRC: 'Costa Rica',
+    POL: 'Poland',
+    CRO: 'Croatia',
+    KSA: 'Saudi Arabia',
+    TUN: 'Tunisia',
+    SEN: 'Senegal',
+    BEL: 'Belgium',
+    MAR: 'Morocco',
+    CAN: 'Canada',
+    WAL: 'Wales',
+    IRN: 'Iran',
+    QAT: 'Qatar',
+    NED: 'Netherlands'
+  }
+
+  const handleSubmit = () => {}
 
   const emojiTitle = 'Emoji should be a comma separated list of emoji randomly picked for their event, e.g. tada,confetti_ball,partying_face,fireworks'
-  const teams = [
-    {'name': 'Uruguay', 'tla': 'URU'},
-    {'name': 'Germany', 'tla': 'GER'},
-    {'name': 'Spain', 'tla': 'ESP'},
-    {'name': 'Argentina', 'tla': 'ARG'},
-    {'name': 'Ghana', 'tla': 'GHA'},
-    {'name': 'Brazil', 'tla': 'BRA'},
-    {'name': 'Portugal', 'tla': 'POR'},
-    {'name': 'Japan', 'tla': 'JPN'},
-    {'name': 'Mexico', 'tla': 'MEX'},
-    {'name': 'England', 'tla': 'ENG'},
-    {'name': 'United States', 'tla': 'USA'},
-    {'name': 'South Korea', 'tla': 'KOR'},
-    {'name': 'France', 'tla': 'FRA'},
-    {'name': 'Australia', 'tla': 'AUS'},
-    {'name': 'Serbia', 'tla': 'SRB'},
-    {'name': 'Cameroon', 'tla': 'CMR'},
-    {'name': 'Denmark', 'tla': 'DEN'},
-    {'name': 'Switzerland', 'tla': 'SUI'},
-    {'name': 'Ecuador', 'tla': 'ECU'},
-    {'name': 'Costa Rica', 'tla': 'CRC'},
-    {'name': 'Poland', 'tla': 'POL'},
-    {'name': 'Croatia', 'tla': 'CRO'},
-    {'name': 'Saudi Arabia', 'tla': 'KSA'},
-    {'name': 'Tunisia', 'tla': 'TUN'},
-    {'name': 'Senegal', 'tla': 'SEN'},
-    {'name': 'Belgium', 'tla': 'BEL'},
-    {'name': 'Morocco', 'tla': 'MAR'},
-    {'name': 'Canada', 'tla': 'CAN'},
-    {'name': 'Wales', 'tla': 'WAL'},
-    {'name': 'Iran', 'tla': 'IRN'},
-    {'name': 'Qatar', 'tla': 'QAT'},
-    {'name': 'Netherlands', 'tla': 'NED'},
-  ]
 </script>
 
 <Github/>
@@ -119,7 +122,6 @@
         id="score_emoji"
         name="score_emoji"
         placeholder="soccer"
-        on:change={handleChange}
         bind:value={formValues.score}
     />
     </span>
@@ -130,7 +132,6 @@
         id="draw_emoji"
         name="draw_emoji"
         placeholder="expressionless"
-        on:change={handleChange}
         bind:value={formValues.draw}
     />
     </span>
@@ -141,7 +142,6 @@
         id="kickoff_emoji"
         name="kickoff_emoji"
         placeholder="partying_face,fireworks"
-        on:change={handleChange}
         bind:value={formValues.kickOff}
     />
     </span>
@@ -150,14 +150,13 @@
   <hr>
 
   <div class="wrapper">
-    {#each teams as {name, tla}}
+    {#each Object.entries(teams) as [ tla, name ]}
       <span class="form-element">
       <label for="team_{tla}">{name}</label>
       <input
           id="team_{tla}"
           name="team_{tla}"
-          on:change={handleChange}
-          bind:value={$form.tla}
+          bind:value={formValues.owners[tla]}
       />
       </span>
     {/each}

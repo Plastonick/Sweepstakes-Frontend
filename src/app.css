@@ -167,13 +167,16 @@ label {
 }
 
 .wrapper {
-  width: 800px;
+  width: 50vw;
   display: flex;
   flex-wrap: wrap;
+  align-content: center;
 }
+
 .wrapper > * {
-  flex: 1 1 150px;
+  flex: 1 1 15vw;
 }
+
 .form-element {
   padding: 1em;
 }

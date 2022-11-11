@@ -163,7 +163,6 @@ label {
 }
 
 .form-section {
-    width: 60vw;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -205,6 +204,7 @@ a.button {
 }
 
 div.content {
+    width: 65vw;
     padding: 2em;
     box-shadow: rgba(10, 10, 10, 0.2) 0 2px 8px 0;
     background-color: #333333;

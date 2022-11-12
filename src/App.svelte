@@ -19,7 +19,7 @@
       formValues.draw = result.data.draw
     }
 
-    axios.get(sweepstakesApi, { params: { url: formValues.webhook }})
+    axios.get(`${sweepstakesApi}/configuration`, { params: { url: formValues.webhook }})
       .then(hydrateConfiguration)
       .catch((result) => {
         console.error('result', result)
@@ -42,7 +42,7 @@
       return
     }
 
-    await axios.put(sweepstakesApi, formValues)
+    await axios.put(`${sweepstakesApi}/configuration`, formValues)
         .then()
         .catch()
   }
@@ -52,7 +52,7 @@
       return
     }
 
-    await axios.delete(sweepstakesApi, { params: { url: formValues.webhook }} )
+    await axios.delete(`${sweepstakesApi}/configuration`, { params: { url: formValues.webhook }} )
         .then()
         .catch()
   }
@@ -109,7 +109,7 @@
 
 <div class="content">
   <h1>
-    Sweepstakes Announcer
+    World Cup 2022 Sweepstakes Announcer
   </h1>
 
   <h5>

@@ -146,7 +146,6 @@
             bind:value={formValues.webhook}
         />
         <a
-            href="#"
             class="button"
             on:click={fetchAndHydrateConfiguration}
             title="Fetch existing webhook configuration"

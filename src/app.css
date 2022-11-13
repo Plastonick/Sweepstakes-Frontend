@@ -218,6 +218,13 @@ hr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.feedback.error {
+    color: var(--red);
+}
+.feedback.success {
+    color: var(--primary);
+}
+
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;

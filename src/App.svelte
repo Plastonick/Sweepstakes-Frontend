@@ -1,5 +1,4 @@
-<script>
-  import { onMount } from 'svelte';
+<script lang="ts">
   import Github from './lib/Github.svelte'
   import axios from 'axios'
 
@@ -17,12 +16,13 @@
       formValues.score = result.data.score
       formValues.kickOff = result.data.kickOff
       formValues.draw = result.data.draw
+      fetchFeedback = { type: 'success', message: 'Retrieved existing configuration' }
     }
 
     axios.get(`${sweepstakesApi}/configuration`, { params: { url: formValues.webhook }})
       .then(hydrateConfiguration)
       .catch((result) => {
-        console.error('result', result)
+          fetchFeedback = { type: 'error', message: result.response.data.message }
       })
   }
 
@@ -43,8 +43,12 @@
     }
 
     await axios.put(`${sweepstakesApi}/configuration`, formValues)
-        .then()
-        .catch()
+        .then((result) => {
+            persistFeedback = { type: 'success', message: result.data.message }
+        })
+        .catch((result) => {
+            persistFeedback = { type: 'error', message: result.response.data.message }
+        })
   }
 
   const deleteConfiguration = async function () {
@@ -53,8 +57,12 @@
     }
 
     await axios.delete(`${sweepstakesApi}/configuration`, { params: { url: formValues.webhook }} )
-        .then()
-        .catch()
+        .then((result) => {
+            persistFeedback = { type: 'success', message: result.data.message }
+        })
+        .catch((result) => {
+            persistFeedback = { type: 'error', message: result.response.data.message }
+        })
   }
 
   const formValues = {
@@ -100,6 +108,20 @@
      USA: 'United States',
      URU: 'Uruguay',
      WAL: 'Wales',
+  }
+  let fetchFeedback: { type: string, message: string }|null = null
+  let persistFeedback: { type: string, message: string }|null = null
+
+  $: if (fetchFeedback) {
+      window.setTimeout(() => {
+          fetchFeedback = null
+      }, 5000)
+  }
+
+  $: if (persistFeedback) {
+      window.setTimeout(() => {
+          persistFeedback = null
+      }, 5000)
   }
 
   const emojiTitle = 'Emoji should be a comma separated list of emoji randomly picked for their event, e.g. tada,confetti_ball,partying_face,fireworks'
@@ -150,6 +172,11 @@
             on:click={fetchAndHydrateConfiguration}
             title="Fetch existing webhook configuration"
         >⬇</a>
+        {#if fetchFeedback !== null}
+          <small
+              class="feedback {fetchFeedback.type}"
+          >{fetchFeedback.message}</small>
+        {/if}
       </span>
       <span class="form-element">
       <label for="service">Service</label>
@@ -225,5 +252,11 @@
       <button type="submit" on:click={updateConfiguration}>update</button>
       <button class="delete" on:click={deleteConfiguration}>delete</button>
     </div>
+
+    {#if persistFeedback !== null}
+      <small
+          class="feedback {persistFeedback.type}"
+      >{persistFeedback.message}</small>
+    {/if}
   </form>
 </div>

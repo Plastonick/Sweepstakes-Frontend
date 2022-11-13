@@ -37,6 +37,11 @@ p {
     text-align: left;
 }
 
+ul {
+    list-style: none;
+    text-align: left;
+}
+
 a.github-corner svg {
     color: #242424;
     fill: var(--primary-dark)

@@ -125,7 +125,7 @@
   }
 
   const emojiTitle = 'Emoji should be a comma separated list of emoji randomly picked for their event, e.g. tada,confetti_ball,partying_face,fireworks'
-  let teamsExpanded = true
+  let teamsExpanded = false
   const toggleTeams = function () {
     teamsExpanded = !teamsExpanded
   }
@@ -166,17 +166,16 @@
       Events include: <i>match starting</i>, <i>goal scored</i> (and goal disallowed!), and <i>match finishing</i> events (declaring the winner, or a draw)
     </p>
 
-    <p>
-      To use the bot, create an incoming webhook for your Slack or Discord channel and enter it below.
-      <br>
-      If you already have a configuration, enter your webhook URL and click on the ⬇ button next to it to load your configuration.
-      <br>
-      Then, enter or update the emoji list if desired, and the names of the players for each team.
-      <br>
-      Emoji list should be a comma separated list of emojis which will be randomly selected for the related event.
-      <br>
-      Names should either be the player's handle such as <i>@dpugh</i> or the player name <i>David Pugh</i>
-    </p>
+    <ul>
+      <li><strong>Webhook</strong> is an incoming webhook generated for your Slack or Discord channel</li>
+      <li><strong>Service</strong> is either Slack or Discord, this should be selected automatically</li>
+      <li><strong>Emoji</strong> should be a comma separated list of emoji which will be randomly selected to be used in the message for their event</li>
+      <li><strong>Teams</strong> input the names for each </li>
+      <ul>
+        <li>a <strong>tagged identifier</strong>, these are detected by a prefixed @. For Slack this should look something like @dpugh and for Discord this will be their <a href="https://www.businessinsider.com/guides/tech/discord-id?r=US&IR=T">Discord user ID</a> e.g. @123456789</li>
+        <li>or the person's <strong>full name</strong> such as David Pugh</li>
+      </ul>
+    </ul>
   </div>
 
   <form on:submit|preventDefault>

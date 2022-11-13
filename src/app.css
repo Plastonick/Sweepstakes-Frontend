@@ -241,25 +241,38 @@ hr {
 .section-expand {
     display: flex;
     flex-direction: row;
+    /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
 }
 
-.section-expand > span {
-    flex: 3 1 1px;
+.section-expand > * {
+    padding: 0.5em;
+    flex: 1 1 1px;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
 
-.section-expand > span:not(.flex-space) {
+
+.section-expand > *:first-child {
+    text-align: left;
+}
+
+.section-expand > *:last-child {
+    text-align: right;
+}
+
+.section-expand > *:not(.flex-space) {
     flex-grow: 1;
     min-width: max-content;
 }
 
-.section-expand .flex-space {
-    padding-left: 1px;
-    padding-right: 1px;
+.section-expand .status {
+    width: fit-content;
+    float: right;
 }
 
 .section-expand .status.expanded {

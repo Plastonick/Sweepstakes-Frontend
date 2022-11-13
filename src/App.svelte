@@ -143,17 +143,14 @@
     World Cup 2022 Sweepstakes Announcer
   </h1>
 
-
-  <hr>
   <div
       class="section-expand"
       on:click={toggleHelp}
   >
-    <span>Help and Information</span>
-    <span class="flex-space"></span>
-    <span class="status {helpExpanded ? 'expanded' : ''}">＋</span>
+    <div>Help and Information</div>
+    <div class="flex-space"></div>
+    <div><div class="status {helpExpanded ? 'expanded' : ''}">＋</div></div>
   </div>
-  <hr>
 
   <div class="form-help collapsible-wrapper {helpExpanded ? '' : 'collapsed'}">
     <h5>
@@ -265,16 +262,15 @@
       </span>
     </div>
 
-    <hr>
     <div
         class="section-expand"
         on:click={toggleTeams}
     >
-      <span>Team Selection</span>
-      <span class="flex-space"></span>
-      <span class="status {teamsExpanded ? 'expanded' : ''}">＋</span>
+      <div>Team Selection</div>
+      <div class="flex-space"></div>
+      <div><div class="status {teamsExpanded ? 'expanded' : ''}">＋</div></div>
     </div>
-    <hr>
+
     <div class="collapsible-wrapper {teamsExpanded ? '' : 'collapsed'}">
       <div class="form-section">
         {#each Object.entries(teams) as [ tla, name ]}

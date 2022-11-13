@@ -125,12 +125,12 @@
   }
 
   const emojiTitle = 'Emoji should be a comma separated list of emoji randomly picked for their event, e.g. tada,confetti_ball,partying_face,fireworks'
-  let teamsExpanded = false
+  let teamsExpanded = true
   const toggleTeams = function () {
     teamsExpanded = !teamsExpanded
   }
 
-  let helpExpanded = true
+  let helpExpanded = false
   const toggleHelp = function () {
     helpExpanded = !helpExpanded
   }
@@ -149,7 +149,7 @@
       class="section-expand"
       on:click={toggleHelp}
   >
-    <span>Usage</span>
+    <span>Help and Information</span>
     <span class="flex-space"></span>
     <span class="status {helpExpanded ? 'expanded' : ''}">＋</span>
   </div>
@@ -163,17 +163,27 @@
     <p>
       This bot posts to your Slack or Discord channel for any match event during the World Cup.
       <br>
-      Events include: <i>match starting</i>, <i>goal scored</i> (and goal disallowed!), and <i>match finishing</i> events (declaring the winner, or a draw)
+      Events include
+    </p>
+    <ul>
+      <li><strong>Match Starting</strong></li>
+      <li><strong>Goal Scored</strong></li>
+      <li><strong>Goal Disallowed</strong></li>
+      <li>and <strong>Match Finishing</strong> events <i>(declaring the winner, or if the match were drawn)</i></li>
+    </ul>
+
+    <p>
+      Using this service requires generating some data, and deciding on some configuration values for your use case
     </p>
 
     <ul>
-      <li><strong>Webhook</strong> is an incoming webhook generated for your Slack or Discord channel</li>
-      <li><strong>Service</strong> is either Slack or Discord, this should be selected automatically</li>
-      <li><strong>Emoji</strong> should be a comma separated list of emoji which will be randomly selected to be used in the message for their event</li>
-      <li><strong>Teams</strong> input the names for each </li>
+      <li><strong>Webhook</strong> is an incoming webhook you'll need to generate for your <a href="https://api.slack.com/messaging/webhooks">Slack</a> or <a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">Discord</a> channel</li>
+      <li><strong>Service</strong> is either Slack or Discord, this should be selected automatically when you enter your webhook</li>
+      <li><strong>Emoji</strong> should be a comma separated list of emoji which will be randomly selected to be used in any messages for their event</li>
+      <li><strong>Teams</strong> should be the name of the person allocated to each team, this can either be </li>
       <ul>
-        <li>a <strong>tagged identifier</strong>, these are detected by a prefixed @. For Slack this should look something like @dpugh and for Discord this will be their <a href="https://www.businessinsider.com/guides/tech/discord-id?r=US&IR=T">Discord user ID</a> e.g. @123456789</li>
-        <li>or the person's <strong>full name</strong> such as David Pugh</li>
+        <li>a <strong>tagged identifier</strong>, these are detected by a prefixed @. For Slack this should look something like @fbloggs and for Discord this will be their <a href="https://www.businessinsider.com/guides/tech/discord-id?r=US&IR=T">Discord user ID</a> e.g. @123456789</li>
+        <li>or the person's <strong>full name</strong> such as Fred Bloggs</li>
       </ul>
     </ul>
   </div>

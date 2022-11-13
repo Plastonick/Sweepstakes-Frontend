@@ -42,6 +42,10 @@ ul {
     text-align: left;
 }
 
+ul > ul {
+    list-style: circle;
+}
+
 a.github-corner svg {
     color: #242424;
     fill: var(--primary-dark)

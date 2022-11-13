@@ -33,6 +33,10 @@ body {
     min-height: 100vh;
 }
 
+p {
+    text-align: left;
+}
+
 a.github-corner svg {
     color: #242424;
     fill: var(--primary-dark)
@@ -223,6 +227,43 @@ hr {
 }
 .feedback.success {
     color: var(--primary);
+}
+
+.section-expand {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.section-expand > span {
+    flex: 3 1 1px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.section-expand > span:not(.flex-space) {
+    flex-grow: 1;
+    min-width: max-content;
+}
+
+.section-expand .flex-space {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.section-expand .status.expanded {
+    rotate: 45deg;
+    transition-duration: 0.5s;
+}
+
+.section-expand .status:not(.expanded) {
+    transition-duration: 0.5s;
+}
+
+.collapsible-wrapper.collapsed {
+    display: none;
 }
 
 @media (prefers-color-scheme: light) {

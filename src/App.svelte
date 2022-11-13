@@ -143,6 +143,10 @@
     World Cup 2022 Sweepstakes Announcer
   </h1>
 
+  <h5>
+    Add an announcer for match events to your Slack or Discord World Cup sweepstakes channel
+  </h5>
+
   <div
       class="section-expand"
       on:click={toggleHelp}
@@ -153,10 +157,6 @@
   </div>
 
   <div class="form-help collapsible-wrapper {helpExpanded ? '' : 'collapsed'}">
-    <h5>
-      Add an announcer for match events to your Slack or Discord World Cup sweepstakes channel
-    </h5>
-
     <p>
       This bot posts to your Slack or Discord channel for any match event during the World Cup.
       <br>

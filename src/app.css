@@ -190,14 +190,16 @@ label {
 }
 
 .submit-section {
-    width: 50vw;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
 }
 
 .submit-section > * {
-    flex: 0 1 8vw;
+    flex: 1 1 8vw;
+}
+.submit-section .test {
+    filter: hue-rotate(70deg);
 }
 
 button.delete {

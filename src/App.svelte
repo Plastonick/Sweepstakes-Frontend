@@ -37,6 +37,28 @@
     }
   }
 
+  const testConfiguration = async function () {
+      if (!formValues.webhook) {
+          persistFeedback = { type: 'error', message: 'No webhook URL detected' }
+
+          return
+      }
+
+      if (formValues.service !== 'slack' && formValues.service !== 'discord') {
+          persistFeedback = {type: 'error', message: 'No valid Service detected' }
+
+          return
+      }
+
+      await axios.post(`${sweepstakesApi}/webhook-test`, formValues)
+          .then((result) => {
+              persistFeedback = { type: 'success', message: result.data.message }
+          })
+          .catch((result) => {
+              persistFeedback = { type: 'error', message: result.response.data.message }
+          })
+  }
+
   const updateConfiguration = async function () {
     if (!formValues.webhook) {
       return
@@ -288,6 +310,7 @@
 
     <div class="submit-section">
       <button type="submit" on:click={updateConfiguration}>update</button>
+      <button class="test" title="Sends a test message to verify your webhook URL" on:click={testConfiguration}>test</button>
       <button class="delete" on:click={deleteConfiguration}>delete</button>
     </div>
 

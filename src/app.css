@@ -222,7 +222,7 @@ a.button {
 
 div.content {
     width: 65vw;
-    max-width: 68em;
+    max-width: 50em;
     padding: 2em;
     box-shadow: rgba(10, 10, 10, 0.2) 0 2px 8px 0;
     background-color: #333333;

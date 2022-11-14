@@ -105,7 +105,8 @@ select,
 textarea {
     font-family: inherit;
     font-size: inherit;
-    max-width: 400px;
+    max-width: 30em;
+    min-width: 15em;
     width: 100%;
     padding: 12px;
     box-sizing: border-box;
@@ -220,7 +221,7 @@ a.button {
 
 div.content {
     width: 65vw;
-    max-width: 800px;
+    max-width: 68em;
     padding: 2em;
     box-shadow: rgba(10, 10, 10, 0.2) 0 2px 8px 0;
     background-color: #333333;
@@ -244,8 +245,8 @@ hr {
     display: flex;
     flex-direction: row;
     /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+    border-top: 1px solid rgba(127, 127, 127, 0.3);
     cursor: pointer;
 }
 

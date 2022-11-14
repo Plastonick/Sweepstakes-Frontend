@@ -178,12 +178,13 @@ label {
 
 .form-section {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
 }
 
 .form-section > * {
-    flex: 1 1 10vw;
+    flex: 1 1 auto;
 }
 
 .form-element {

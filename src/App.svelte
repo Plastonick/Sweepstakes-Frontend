@@ -196,7 +196,7 @@
     </p>
 
     <ul>
-      <li><strong>Webhook</strong> is an incoming webhook you'll need to generate for your <a href="https://api.slack.com/messaging/webhooks">Slack</a> or <a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">Discord</a> channel</li>
+      <li><strong>Webhook</strong> is an incoming webhook you'll need to generate for your <a href="https://api.slack.com/messaging/webhooks">Slack</a> or <a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">Discord</a> channel. <small>This allows the bot to post to your channel, and is used as a key to fetch your configuration later to update it. If you no longer want the bot to post to your channel, you can re-enter your webhook and DELETE the configuration, or simply re-generate the webhook URL from your service which will void the old webhook</small></li>
       <li><strong>Service</strong> is either Slack or Discord, this should be selected automatically when you enter your webhook</li>
       <li><strong>Emoji</strong> should be a comma separated list of emoji which will be randomly selected to be used in any messages for their event</li>
       <li><strong>Teams</strong> should be the name of the person allocated to each team, this can either be </li>

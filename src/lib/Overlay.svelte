@@ -10,7 +10,15 @@
         hidden = !hidden
         dispatch('toggle')
     }
+    const handleKeyDown = (event) => {
+        if (hidden) return
+        if (event.key === 'Escape') {
+            toggle()
+        }
+    }
 </script>
+
+<svelte:window on:keydown={handleKeyDown} />
 
 {#if !hidden }
     <div class="overlay-wrapper" on:click|self={toggle} transition:blur>

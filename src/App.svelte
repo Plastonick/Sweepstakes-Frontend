@@ -146,7 +146,7 @@
       }, 5000)
   }
 
-  const emojiTitle = 'Emoji should be a comma separated list of emoji randomly picked for their event, e.g. tada,confetti_ball,partying_face,fireworks'
+  const emojiTitle = 'Emoji should be a comma separated list of emoji randomly picked for their event'
   let teamsExpanded = true
   const toggleTeams = function () {
     teamsExpanded = !teamsExpanded
@@ -198,7 +198,7 @@
     <ul>
       <li><strong>Webhook</strong> is an incoming webhook you'll need to generate for your <a href="https://api.slack.com/messaging/webhooks">Slack</a> or <a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">Discord</a> channel. <small>This allows the bot to post to your channel, and is used as a key to fetch your configuration later to update it. If you no longer want the bot to post to your channel, you can re-enter your webhook and DELETE the configuration, or simply re-generate the webhook URL from your service which will void the old webhook</small></li>
       <li><strong>Service</strong> is either Slack or Discord, this should be selected automatically when you enter your webhook</li>
-      <li><strong>Emoji</strong> should be a comma separated list of emoji which will be randomly selected to be used in any messages for their event</li>
+      <li><strong>Emoji</strong> should be a comma separated list of emoji which will be randomly selected to be used in any messages for their event. Emoji can either be the emoji character 🫡, or the string alias <i>saluting_face</i></li>
       <li><strong>Teams</strong> should be the name of the person allocated to each team, this can either be </li>
       <ul>
         <li>a <strong>tagged identifier</strong>, these are detected by a prefixed @. For Slack this should look something like @fbloggs and for Discord this will be their <a href="https://www.businessinsider.com/guides/tech/discord-id?r=US&IR=T">Discord user ID</a> e.g. @123456789</li>
@@ -248,7 +248,7 @@
       <input
           id="win_emoji"
           name="win_emoji"
-          placeholder="tada,confetti_ball"
+          placeholder="🎉,🎊"
           bind:value={formValues.win}
       />
       </span>
@@ -258,7 +258,7 @@
       <input
           id="score_emoji"
           name="score_emoji"
-          placeholder="soccer"
+          placeholder="⚽️"
           bind:value={formValues.score}
       />
       </span>
@@ -268,7 +268,7 @@
       <input
           id="draw_emoji"
           name="draw_emoji"
-          placeholder="expressionless"
+          placeholder="😐,disappointed,🫠"
           bind:value={formValues.draw}
       />
       </span>

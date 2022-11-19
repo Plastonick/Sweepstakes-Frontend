@@ -67,4 +67,8 @@
     .section-expand {
         cursor: help;
     }
+
+    .form-help {
+        padding: 0 1em;
+    }
 </style>

@@ -1,9 +1,12 @@
 <script lang="ts">
     import Overlay from "./Overlay.svelte";
+    import {createEventDispatcher} from "svelte";
+    const dispatch = createEventDispatcher();
 
-    let hidden: boolean = true
+    export let hidden: boolean
     const toggle = function () {
         hidden = !hidden
+        dispatch('toggle')
     }
 </script>
 

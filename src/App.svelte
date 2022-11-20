@@ -147,12 +147,18 @@
         }, 5000)
     }
 
+    let selected: string|null = null
     let helpHidden: boolean = true
-    const toggleHelp = () => {
+    const toggleHelp = (event) => {
+        if (helpHidden) {
+            selected = event.target.dataset.helpType
+        } else {
+            selected = null
+        }
+
         helpHidden = !helpHidden
     }
 
-    const emojiTitle = 'Emoji should be a comma separated list of emoji randomly picked for their event'
     let teamsExpanded = true
     const toggleTeams = function () {
         teamsExpanded = !teamsExpanded
@@ -171,12 +177,12 @@
     Add an announcer for match events to your Slack or Discord World Cup sweepstakes channel
   </h5>
 
-  <Help hidden={helpHidden} on:toggle={toggleHelp}/>
+  <Help hidden={helpHidden} selected={selected} on:toggle={toggleHelp}/>
 
   <form on:submit|preventDefault>
     <div class="form-section">
       <span class="form-element">
-        <label for="webhook" class="label-help" on:click={toggleHelp}>webhook</label>
+        <label for="webhook" class="label-help" data-help-type="webhook" on:click={toggleHelp}>webhook</label>
         <input
             id="webhook"
             name="webhook"
@@ -196,7 +202,7 @@
         {/if}
       </span>
       <span class="form-element">
-      <label for="service" class="label-help" on:click={toggleHelp}>Service</label>
+      <label for="service" class="label-help" data-help-type="service" on:click={toggleHelp}>Service</label>
       <select
           id="service"
           name="service"
@@ -210,7 +216,7 @@
 
     <div class="form-section">
       <span class="form-element">
-      <label for="win_emoji" class="label-help" on:click={toggleHelp}>win emoji</label>
+      <label for="win_emoji" class="label-help" data-help-type="emoji" on:click={toggleHelp}>win emoji</label>
       <input
           id="win_emoji"
           name="win_emoji"
@@ -219,7 +225,7 @@
       </span>
 
       <span class="form-element">
-      <label for="score_emoji" class="label-help" on:click={toggleHelp}>score emoji</label>
+      <label for="score_emoji" class="label-help" data-help-type="emoji" on:click={toggleHelp}>score emoji</label>
       <input
           id="score_emoji"
           name="score_emoji"
@@ -228,7 +234,7 @@
       </span>
 
       <span class="form-element">
-      <label for="draw_emoji" class="label-help" on:click={toggleHelp}>draw emoji</label>
+      <label for="draw_emoji" class="label-help" data-help-type="emoji" on:click={toggleHelp}>draw emoji</label>
       <input
           id="draw_emoji"
           name="draw_emoji"
@@ -237,7 +243,7 @@
       </span>
 
       <span class="form-element">
-      <label for="kickoff_emoji" class="label-help" on:click={toggleHelp}>kickoff emoji</label>
+      <label for="kickoff_emoji" class="label-help" data-help-type="emoji" on:click={toggleHelp}>kickoff emoji</label>
       <input
           id="kickoff_emoji"
           name="kickoff_emoji"
@@ -261,7 +267,14 @@
       <div class="form-section">
         {#each Object.entries(teams) as [tla, name]}
         <span class="form-element">
-        <label for="team_{tla}" class="label-help" on:click={toggleHelp}>{name}</label>
+        <label
+            for="team_{tla}"
+            class="label-help"
+            data-help-type="teams"
+            on:click={toggleHelp}
+        >
+          {name}
+        </label>
         <input
             id="team_{tla}"
             name="team_{tla}"

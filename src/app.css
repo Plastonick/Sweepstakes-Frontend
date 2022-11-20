@@ -42,7 +42,7 @@ ul {
     text-align: left;
 }
 
-ul > ul {
+ul ul {
     list-style: circle;
 }
 

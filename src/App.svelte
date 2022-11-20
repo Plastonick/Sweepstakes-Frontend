@@ -305,6 +305,7 @@
 <style>
     div.content {
         width: 65vw;
+        max-width: 50em;
     }
 
     label.label-help {

@@ -17,6 +17,7 @@
             formValues.score = result.data.score
             formValues.kickOff = result.data.kickOff
             formValues.draw = result.data.draw
+            formValues.delaySeconds = result.data.delaySeconds
             fetchFeedback = {type: 'success', message: 'Retrieved existing configuration'}
         }
 
@@ -96,6 +97,7 @@
         score: '⚽️,💥',
         kickOff: '🏁,🚦',
         draw: '😐,🫠',
+        delaySeconds: 120
     }
 
     const teams = {
@@ -248,6 +250,16 @@
           id="kickoff_emoji"
           name="kickoff_emoji"
           bind:value={formValues.kickOff}
+      />
+      </span>
+
+      <span class="form-element">
+      <label for="delay_seconds" title="Delay to post messages in seconds">announcer delay</label>
+      <input
+          id="delay_seconds"
+          name="delay_seconds"
+          type="number"
+          bind:value={formValues.delaySeconds}
       />
       </span>
     </div>

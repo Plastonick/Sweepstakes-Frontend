@@ -165,11 +165,11 @@
 
 <div class="content">
   <h1>
-    World Cup 2022 Sweepstakes Announcer
+    Euro 2024 Sweepstakes Announcer
   </h1>
 
   <h5>
-    Add an announcer for match events to your Slack or Discord World Cup sweepstakes channel
+    Add an announcer for match events to your Slack or Discord Euros sweepstakes channel
   </h5>
 
   <Help hidden={helpHidden} selected={selected} on:toggle={toggleHelp}/>
